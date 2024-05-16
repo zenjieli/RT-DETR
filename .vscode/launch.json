@@ -48,6 +48,28 @@
                 "--checkpoint",
                 "models/rtdetr/rtdetr_r18vd_dec3_6x_coco_from_paddle.pth"
             ]
+        },
+        {
+            "name": "Infer test",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/rtdetr_pytorch/custom/infer_test.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/rtdetr_pytorch",
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "0"
+            },
+            "args": [
+                "--config",
+                "configs/rtdetr/rtdetr_r18vd_6x_coco.yml",
+                "--ckpt",
+                "models/rtdetr/rtdetr_r18vd_dec3_6x_coco_from_paddle.pth",
+                "--source",
+                "dataset/coco/val2017",
+                // "--output_dir",
+                // "output"
+            ]
         }
     ]
 }
